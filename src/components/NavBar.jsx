@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import logoF1 from './steering-wheel.png';
 import './NavBar.css';
+import { MdShoppingCart } from "react-icons/md";
 import {
   Box,
   Flex,
@@ -81,6 +82,10 @@ export default function Nav() {
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
+        </Flex>
+        
+        <Flex mr={10}>
+          <Button><Icon as={MdShoppingCart} /></Button>
         </Flex>
 
         <Flex alignItems={'center'}>
@@ -283,11 +288,6 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Por piloto',
     children: [
       {
-        label: 'Piloto',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
         label: 'Piloto 1',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
@@ -302,36 +302,11 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '#',
         clickeado:()=> alert("me hiciste click"),
       },
-      {
-        label: 'Piloto 4',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Piloto 5',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Piloto 6',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Piloto 7',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
     ],
   },
   {
     label: 'Por equipo',
     children: [
-      {
-        label: 'Equipo',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
       {
         label: 'Equipo 1',
         href: '#',
@@ -344,26 +319,6 @@ const NAV_ITEMS: Array<NavItem> = [
       },
       {
         label: 'Equipo 3',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Equipo 4',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Equipo 5',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Equipo 6',
-        href: '#',
-        clickeado:()=> alert("me hiciste click"),
-      },
-      {
-        label: 'Equipo 7',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
       },
