@@ -35,23 +35,9 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
-
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
   return (
       <Box>
 
@@ -81,13 +67,13 @@ export default function Nav() {
         
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} alignItems={'center'}>
         <Stack direction={'row'}  align={'center'}>
-          <a href='#'><img src = {logoF1} className='logo'/></a>
+          <a href='../public/index.html'><img src = {logoF1} className='logo' alt='Steering-Wheel'/></a>
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
             className='nombre'>
-            <a href='#'>8th Gear</a>
+            <a href='../public/index.html'>8th Gear</a>
           </Text>
           </Stack>
 
@@ -287,14 +273,6 @@ const MobileNavItem = ({ label, children, href, clickeado}: NavItem) => {
     </Stack>
   );
 };
-
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-  clickeado?: string;
-}
 
 const NAV_ITEMS: Array<NavItem> = [
   {
