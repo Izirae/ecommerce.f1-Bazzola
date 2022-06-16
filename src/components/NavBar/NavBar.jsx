@@ -1,7 +1,5 @@
-import { ReactNode } from 'react';
 import logoF1 from './steering-wheel.png';
-import './NavBar.css';
-import { MdShoppingCart } from "react-icons/md";
+import CartWidget from '../CartWidget';
 import {
   Box,
   Flex,
@@ -26,6 +24,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   useBreakpointValue,
+  Image,
 } from '@chakra-ui/react';
 import {
   MoonIcon,
@@ -43,7 +42,7 @@ export default function Nav() {
       <Box>
 
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('orange.100', 'blue.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -68,12 +67,12 @@ export default function Nav() {
         
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} alignItems={'center'}>
         <Stack direction={'row'}  align={'center'}>
-          <a href='../public/index.html'><img src = {logoF1} className='logo' alt='Steering-Wheel'/></a>
+          <a href='../public/index.html'><Image src = {logoF1} h={{base: '30px', md: '50px', lg: '70px'}} alt='Steering-Wheel'/></a>
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
-            className='nombre'>
+            fontSize={{ base: '20px', md: '26px', lg: '32px' }}>
             <a href='../public/index.html'>8th Gear</a>
           </Text>
           </Stack>
@@ -84,8 +83,8 @@ export default function Nav() {
           </Flex>
         </Flex>
         
-        <Flex mr={10}>
-          <Button><Icon as={MdShoppingCart} /></Button>
+        <Flex mr={3}>
+          <CartWidget />
         </Flex>
 
         <Flex alignItems={'center'}>
@@ -148,7 +147,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                fontSize={'m'}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -219,7 +218,7 @@ const DesktopSubNav = ({ label, href, subLabel, clickeado }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue('red.50', 'gray.800')}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
