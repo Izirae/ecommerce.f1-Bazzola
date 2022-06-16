@@ -84,7 +84,7 @@ export default function Nav() {
         </Flex>
         
         <Flex mr={3}>
-          <CartWidget />
+          <CartWidget cant={27}/>
         </Flex>
 
         <Flex alignItems={'center'}>

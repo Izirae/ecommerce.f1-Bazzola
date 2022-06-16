@@ -1,8 +1,8 @@
 import { MdShoppingCart } from "react-icons/md";
-import {Button, Icon} from '@chakra-ui/react';
+import {Button, Icon, Text} from '@chakra-ui/react';
 
-export default function CartWidget() {
+export default function CartWidget({cant}) {
     return (
-      <Button><Icon as={MdShoppingCart} /></Button>
+      <Button><Icon as={MdShoppingCart} /><Text ml={2}>{cant}</Text></Button>
     )
 }
