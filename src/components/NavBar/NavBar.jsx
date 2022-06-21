@@ -1,5 +1,5 @@
 import logoF1 from './steering-wheel.png';
-import CartWidget from '../CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 import {
   Box,
   Flex,
