@@ -1,4 +1,4 @@
-# Proyecto de e-commerce en React
+# Proyecto de e-commerce en React Js
 
 Proyecto de e-commerce sobre Fórmula 1 para el curso de React en Coderhouse, hecho por Lautaro Bazzola, comisión 37750.
 
