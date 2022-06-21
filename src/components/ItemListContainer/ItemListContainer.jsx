@@ -10,10 +10,12 @@ function ItemListContainer({msg}) {
     }
 
     return (
-        <Box borderWidth='1px' borderRadius='lg' overflow='hidden' mt={5} align='center'>
+        <Box borderWidth='1px' borderRadius='lg' overflow='hidden' h={300} w={300} align='center' margin="auto">
             <Text 
             fontFamily={'heading'}
             fontSize={{ base: '24px', md: '30px', lg: '36px' }}
+            mb={50}
+            mt={10}
             >
                 {msg}
             </Text>
