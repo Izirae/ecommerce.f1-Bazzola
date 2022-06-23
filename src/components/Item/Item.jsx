@@ -52,12 +52,13 @@ export default function Item({id, model, brand, price, imgURL}) {
                   }}>
                   <Image
                     rounded={'lg'}
-                    height={300}
+                    height={230}
+                    width={282}
                     objectFit={'cover'}
                     src={imgURL}
                   />
                 </Box>
-                <Stack mt={10} pt={10} align={'center'}>
+                <Stack pt={10} align={'center'}>
                   <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
                     {brand}
                   </Text>

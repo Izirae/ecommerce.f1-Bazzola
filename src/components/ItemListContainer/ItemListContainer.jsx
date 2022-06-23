@@ -20,7 +20,6 @@ function ItemListContainer({msg}) {
             { id: 8, model: 'Taza térmica mate Scuderia Ferrari' ,   brand: 'Ferrari', price: 32,  imgURL: "https://images.footballfanatics.com/scuderia-ferrari/scuderia-ferrari-matte-thermal-mug_ss4_p-12046337+u-7hl8dwwoeduavyiytbqg+v-830b182941564d54b47cfe60bf69e03e.jpg?_hv=1&w=900" },
             { id: 9, model: 'Pijama Fórmula 1 - Bebé' ,   brand: 'F1', price: 30,  imgURL: "https://images.footballfanatics.com/formula-1-merchandise/formula-1-boilersuit-sleepsuit-baby_ss4_p-12098565+u-pinojghmi51u3b0ysqyg+v-09ea5d58556f4e3d800c454dd08100df.jpg?_hv=1&w=900" },
             { id: 10, model: 'Llavero de casco Ayrton Senna' ,   brand: 'F1 ', price: 12,  imgURL: "https://images.footballfanatics.com/fullerton-flyers/ayrton-senna-helmet-keyring_ss4_p-12055677+u-ww7eahd36fuaes4xwzw8+v-e7ecf361a97241ee85d9f87290a6a7e6.jpg?_hv=1&w=900" }
-
         ];
     
         new Promise((resolve, reject) => {
