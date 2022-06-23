@@ -8,7 +8,7 @@ function App(){
     <>
     <NavBar />
     <br/>
-    <ItemListContainer msg={'hola'}/>
+    <ItemListContainer msg={'Productos:'}/>
     </>
   );
 }
