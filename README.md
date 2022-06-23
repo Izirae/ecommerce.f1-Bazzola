@@ -1,8 +1,7 @@
 # Proyecto de e-commerce en React Js
 
 Proyecto de e-commerce sobre Fórmula 1 para el curso de React en Coderhouse, hecho por Lautaro Bazzola, comisión 37750.
-
-NavBar hecha con Chakra UI
+utilizando Chakra UI
 
 
 # Getting Started with Create React App
