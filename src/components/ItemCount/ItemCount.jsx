@@ -31,7 +31,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         align='center' 
         margin='auto' 
         borderRadius='lg'
-        bg={useColorModeValue('orange.100', 'gray.800')}
+        bg={useColorModeValue('yellow.50', 'gray.800')}
         >
         <ButtonGroup margin='auto' size='sm' isAttached variant='outline'>
             <IconButton onClick={()=>{lessItems()}} icon={<MinusIcon />} />
@@ -47,7 +47,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <Box align='center'>
         <Text size='sm' mt={2}>Stock: {stock} </Text>
         
-        <Button mt={3} mb={2} width='160px' onClick={onAdd} colorScheme='green'>Agregar al Carrito</Button>
+        <Button mt={3} mb={2} width='160px' onClick={onAdd} colorScheme='blue'>Agregar al Carrito</Button>
         </Box>
         </>
     )

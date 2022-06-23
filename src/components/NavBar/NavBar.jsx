@@ -42,7 +42,7 @@ export default function Nav() {
       <Box>
 
       <Flex
-        bg={useColorModeValue('purple.200', 'blue.800')}
+        bg={useColorModeValue('#FFF159', 'blue.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}

@@ -18,7 +18,7 @@ export default function Item({id, model, brand, price, imgURL}) {
     return (
         <>
               <Box
-                bg={useColorModeValue('purple.200', 'blue.800')}
+                bg={useColorModeValue('#FFF159', 'blue.800')}
                 color={useColorModeValue('gray.600', 'white')}
                 role={'group'}
                 p={6}
@@ -27,7 +27,7 @@ export default function Item({id, model, brand, price, imgURL}) {
                 boxShadow={'2xl'}
                 rounded={'lg'}
                 pos={'relative'}
-                zIndex={1}
+                zIndex={0}
                 margin={5}>
                 <Box
                   rounded={'lg'}
