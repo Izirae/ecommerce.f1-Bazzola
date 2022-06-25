@@ -13,10 +13,10 @@ export default function Item({id, model, brand, price, imgURL}) {
 
     function onAdd(){
         alert("Agregaste los Items al carrito")
+        console.log(id)
     }
 
     return (
-        <>
               <Box
                 bg={useColorModeValue('#FFF159', 'blue.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -73,8 +73,7 @@ export default function Item({id, model, brand, price, imgURL}) {
                 </Stack>
                 <br/>
                 <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-              </Box>        
-            </>
+              </Box>      
         );
 }
         
