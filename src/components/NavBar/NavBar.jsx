@@ -291,10 +291,13 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href, clickeado}) => {
+const MobileNavItem = ({ label, children, href}) => {
   const { isOpen, onToggle } = useDisclosure();
+  const colorChild = useColorModeValue('gray.700', 'gray.200');
+  const colorBorder = useColorModeValue('gray.200', 'gray.700');
 
   return (
+    <>
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
@@ -331,13 +334,48 @@ const MobileNavItem = ({ label, children, href, clickeado}) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href} onClick={child.clickeado}>
-                {child.label}
-              </Link>
+              <Stack>
+              <Link key={child.label} py={2} href={child.href} onClick={child.clickeado} children={child.children}>
+                      <Flex
+                      py={2}
+                      as={Link}
+                      href={child.href ?? '#'}
+                      justify={'space-between'}
+                      align={'center'}
+                      _hover={{
+                        textDecoration: 'none',
+                      }}>
+                      <Text
+                        fontWeight={600}
+                        color={colorChild}>
+                        {child.label}
+                      </Text>
+                    </Flex>
+                </Link>
+
+                    <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+                      <Stack
+                        mt={2}
+                        pl={4}
+                        borderLeft={1}
+                        borderStyle={'solid'}
+                        borderColor={colorBorder}
+                        align={'start'}>
+                        {child.children &&
+                          child.children.map((subchild) => (
+                            <Link key={subchild.label} py={2} href={subchild.href} onClick={subchild.clickeado}>
+                              
+                              {subchild.label}
+                            </Link>
+                          ))}
+                      </Stack>
+                    </Collapse>
+                  </Stack>
             ))}
         </Stack>
       </Collapse>
     </Stack>
+    </>
   );
 };
 
@@ -353,19 +391,19 @@ const NAV_ITEMS = [
         label: 'Piloto 1',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola1', href: '#', clickeado:()=> alert("hola1"),}, {label:'hola2', href: '#', clickeado:()=> alert("hola2"),}]
       },
       {
         label: 'Piloto 2',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola3', href: '#', clickeado:()=> alert("hola3"),}, {label:'hola4', href: '#', clickeado:()=> alert("hola4"),}]
       },
       {
         label: 'Piloto 3',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola5', href: '#', clickeado:()=> alert("hola5"),}, {label:'hola6', href: '#', clickeado:()=> alert("hola6"),}]
       },
     ],
   },
@@ -376,19 +414,19 @@ const NAV_ITEMS = [
         label: 'Equipo 1',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola7', href: '#', clickeado:()=> alert("hola7"),}, {label:'hola8', href: '#', clickeado:()=> alert("hola8"),}]
       },
       {
         label: 'Equipo 2',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola9', href: '#', clickeado:()=> alert("hola9"),}, {label:'hola10', href: '#', clickeado:()=> alert("hola10"),}]
       },
       {
         label: 'Equipo 3',
         href: '#',
         clickeado:()=> alert("me hiciste click"),
-        children: [{label:'hola', href: '#',clickeado:()=> alert("me hiciste click"),}, {label:'hola2', href: '#',clickeado:()=> alert("me hiciste click"),}]
+        children: [{label:'hola11', href: '#', clickeado:()=> alert("hola11"),}, {label:'hola12', href: '#', clickeado:()=> alert("hola12"),}]
       },
     ],
   },
