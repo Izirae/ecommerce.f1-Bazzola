@@ -6,9 +6,9 @@ function App(){
 
   return (
     <>
-    <NavBar />
-    <br/>
-    <ItemListContainer msg={'Productos:'}/>
+      <NavBar />
+      <br/>
+      <ItemListContainer msg={'Bienvenido!'}/>
     </>
   );
 }
