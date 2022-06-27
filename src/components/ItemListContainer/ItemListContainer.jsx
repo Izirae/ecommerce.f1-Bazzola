@@ -110,7 +110,7 @@ function ItemListContainer({ msg }) {
 				</Text>
 			</Box>
 			<Box mr={2}>
-				<SimpleGrid minChildWidth="300px" spacing="18px">
+				<SimpleGrid minChildWidth="300px" spacing="20px">
 					<ItemList gearList={gearList} />
 				</SimpleGrid>
 			</Box>
