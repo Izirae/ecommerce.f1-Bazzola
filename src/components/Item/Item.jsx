@@ -5,16 +5,23 @@ import {
     Heading,
     Text,
     Stack,
-    Image
+    Image,
+    Link,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    Button,
 } from '@chakra-ui/react';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 export default function Item({id, model, brand, price, imgURL}) {
 
-    function onAdd(){
-        alert("Agregaste los Items al carrito")
-        console.log(id)
-    }
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
               <Box
@@ -63,17 +70,31 @@ export default function Item({id, model, brand, price, imgURL}) {
                     {brand}
                   </Text>
                   <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} align='center'>
-                    {model}
+                    <Link  onClick={onOpen}>{model}</Link>
                   </Heading>
                   <Stack direction={'row'} align={'center'}>
-                    <Text fontWeight={800} fontSize={'xl'}>
-                      ${price}
+                    <Text fontWeight={700} fontSize={'xl'}>
+                      ${price} USD
                     </Text>
                   </Stack>
                 </Stack>
-                <br/>
-                <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-              </Box>      
+                <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size='5xl'>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>Detalles</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <ItemDetailContainer model={model} price={price} imgURL={imgURL}/>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button colorScheme='blue' mr={3} onClick={onClose}>
+                          Cerrar
+                        </Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+              </Box> 
+              
         );
 }
         
