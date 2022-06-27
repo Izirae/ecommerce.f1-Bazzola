@@ -184,14 +184,15 @@ const DesktopSubNav = ({ label, href, subLabel, clickeado, children }) => {
 const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
 return (
+<Box
+display={'row'}
+p={2}
+rounded={'md'}>
   <Popover trigger={'hover'} placement={'right'}>
     <Link
     href={href}
     onClick={clickeado}
     role={'group'}
-    display={'row'}
-    p={2}
-    rounded={'md'}
     _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
       <PopoverTrigger>
         <Stack direction={'row'} align={'center'}>
@@ -232,6 +233,7 @@ return (
           </PopoverContent>
         )}
   </Popover>
+</Box>
 )
 };
 
@@ -248,9 +250,9 @@ const DesktopSubSubNav = ({label, href, clickeado}) => {
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
-            transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
+          transition={'all .3s ease'}
+          _groupHover={{ color: 'pink.400' }}
+          fontWeight={500}>
             {label}
           </Text>
         </Box>
