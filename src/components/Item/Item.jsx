@@ -1,27 +1,11 @@
-import React from 'react'
 import {
-    Box,
-    useColorModeValue,
-    Heading,
-    Text,
-    Stack,
-    Image,
-    Link,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure,
-    Button,
+  Box, Heading, Image,
+  Link, Stack, Text, useColorModeValue
 } from '@chakra-ui/react';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function Item({id, model, brand, price, imgURL}) {
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
               <Box
@@ -29,13 +13,16 @@ export default function Item({id, model, brand, price, imgURL}) {
                 color={useColorModeValue('gray.600', 'white')}
                 role={'group'}
                 p={6}
-                maxW={'330px'}
+                maxW={'300px'}
+                h={'475px'}
                 w={'full'}
                 boxShadow={'2xl'}
                 rounded={'lg'}
                 pos={'relative'}
                 zIndex={0}
-                margin={5}>
+                ml={'auto'}
+                mr={'auto'}
+                mb={5}>
                 <Box
                   rounded={'lg'}
                   pos={'relative'}
@@ -70,7 +57,7 @@ export default function Item({id, model, brand, price, imgURL}) {
                     {brand}
                   </Text>
                   <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} align='center'>
-                    <Link  onClick={onOpen}>{model}</Link>
+                    <Link	as={RouterLink} to={"/item/" + id}>{model}</Link>
                   </Heading>
                   <Stack direction={'row'} align={'center'}>
                     <Text fontWeight={700} fontSize={'xl'}>
@@ -78,21 +65,6 @@ export default function Item({id, model, brand, price, imgURL}) {
                     </Text>
                   </Stack>
                 </Stack>
-                <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size='5xl'>
-                    <ModalOverlay />
-                    <ModalContent>
-                      <ModalHeader>Detalles</ModalHeader>
-                      <ModalCloseButton />
-                      <ModalBody>
-                        <ItemDetailContainer model={model} price={price} imgURL={imgURL}/>
-                      </ModalBody>
-                      <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                          Cerrar
-                        </Button>
-                      </ModalFooter>
-                    </ModalContent>
-                  </Modal>
               </Box> 
               
         );

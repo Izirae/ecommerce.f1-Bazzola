@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import {
 	Box,
 	Button,
 	ButtonGroup,
 	IconButton,
 	Text,
-	useColorModeValue,
+	useColorModeValue
 } from "@chakra-ui/react";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { useEffect, useState } from "react";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-	let [auxItems, setAuxItems] = useState(initial);
+const ItemCount = ({ stock, onAdd }) => {
+	let [auxItems, setAuxItems] = useState(1);
 
 	function moreItems() {
 		setAuxItems(auxItems < stock ? auxItems + 1 : (auxItems = stock));
@@ -59,10 +59,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 			</Box>
 			<Box align="center">
 				<Text size="sm" mt={2}>
-					Stock: {stock}{" "}
+					Stock: {stock}
 				</Text>
 
-				<Button mt={3} mb={2} width="160px" onClick={onAdd} colorScheme="blue">
+				<Button mt={3} mb={2} width="160px" onClick={()=>onAdd(auxItems)} colorScheme="blue">
 					Agregar al Carrito
 				</Button>
 			</Box>
