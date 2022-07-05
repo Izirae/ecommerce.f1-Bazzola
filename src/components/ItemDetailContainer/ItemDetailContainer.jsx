@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, Spinner, HStack,} from "@chakra-ui/react";
-import ItemDetail from '../ItemDetail/ItemDetail';
+import ItemDetail from '../ItemDetail/ItemDetailOG';
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = ({price, model, imgURL}) => {
