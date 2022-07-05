@@ -11,22 +11,22 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ItemCount = ({ stock, onAdd }) => {
-	let [auxItems, setAuxItems] = useState(1);
+	let [addItems, setAddItems] = useState(1);
 
 	function moreItems() {
-		setAuxItems(auxItems < stock ? auxItems + 1 : (auxItems = stock));
+		setAddItems(addItems < stock ? addItems + 1 : (addItems = stock));
 	}
 
 	function lessItems() {
-		setAuxItems(auxItems > 1 ? auxItems - 1 : (auxItems = 1));
+		setAddItems(addItems > 1 ? addItems - 1 : (addItems = 1));
 	}
 
 	useEffect(() => {
-		if (auxItems === stock) {
+		if (addItems === stock) {
 			alert("El stock máximo es: " + stock);
 		}
 		// eslint-disable-next-line
-	}, [auxItems]);
+	}, [addItems]);
 
 	return (
 		<Box>
@@ -48,7 +48,7 @@ const ItemCount = ({ stock, onAdd }) => {
 					/>
 
 					<Text width="100px" py={1} color={useColorModeValue("gray.600", "white")}>
-						{auxItems}
+						{addItems}
 					</Text>
 					<IconButton
 						onClick={() => {
@@ -64,7 +64,7 @@ const ItemCount = ({ stock, onAdd }) => {
 				</Text>
 			</Box>
 			<Box>
-				<Button mt={3} mb={2} width="160px" onClick={()=>onAdd(auxItems)} colorScheme="blue">
+				<Button mt={3} mb={2} width="160px" onClick={()=>onAdd(addItems)} colorScheme="blue">
 					Agregar al Carrito
 				</Button>
 				<Button as={Link} to="/cart" mt={3} mb={2} ml={2} width="160px" colorScheme="green">
