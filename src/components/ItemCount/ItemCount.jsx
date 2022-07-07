@@ -9,8 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 const ItemCount = ({ stock, onAdd }) => {
+
+	const { totalItems } = useContext(CartContext);
+
 	let [addItems, setAddItems] = useState(1);
 
 	function moreItems() {
@@ -64,12 +69,17 @@ const ItemCount = ({ stock, onAdd }) => {
 				</Text>
 			</Box>
 			<Box>
-				<Button mt={3} mb={2} width="160px" onClick={()=>onAdd(addItems)} colorScheme="blue">
+				<Button mt={3} mb={2} width="160px" onClick={() => onAdd(addItems)} colorScheme="blue">
 					Agregar al Carrito
 				</Button>
-				<Button as={Link} to="/cart" mt={3} mb={2} ml={2} width="160px" colorScheme="green">
-					Finalizar compra
-				</Button>
+				{totalItems() === 0 ? (
+					<></>
+				) : (
+					<Button as={Link} to="/cart" mt={3} mb={2} ml={2} width="160px" colorScheme="green">
+						Finalizar compra
+					</Button>
+				)}
+
 			</Box>
 		</Box>
 	);

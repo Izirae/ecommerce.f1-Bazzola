@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 
-function ItemListContainer({ msg }) {
+function ItemListContainer() {
 	const [gearList, setGearList] = useState([]);
 	const [loading, setLoading] = useState(true);
-	let {idCat} = useParams();
-	let {idSubcat} = useParams();
+	let { idCat } = useParams();
+	let { idSubcat } = useParams();
 
 	useEffect(() => {
 		let gear = [
@@ -57,10 +57,10 @@ function ItemListContainer({ msg }) {
 				cat: "Ferrari",
 				subcat: "Ropa",
 				desc: [
-					'100 % poliéster', 
-					'Logotipo estampado', 
-					'Cierre de cremallera', 
-					'Paneles laterales', 
+					'100 % poliéster',
+					'Logotipo estampado',
+					'Cierre de cremallera',
+					'Paneles laterales',
 					'Ventilaciones en la axila',
 					'Ribete en los puños'
 				],
@@ -174,15 +174,15 @@ function ItemListContainer({ msg }) {
 
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
-				if (idCat === undefined){
+				if (idCat === undefined) {
 					resolve(gear);
 				}
-				if (idSubcat === undefined){
+				if (idSubcat === undefined) {
 					resolve(catFilter);
 				} else {
 					resolve(subCatFilter);
 				}
-			}, 2000);
+			}, 500);
 		}).then((res) => {
 			setGearList(res);
 			setLoading(false);
@@ -195,22 +195,9 @@ function ItemListContainer({ msg }) {
 		</HStack>
 	) : (
 		<Box borderWidth="1px" borderRadius="lg" margin="auto" ml={2} mr={2}>
-			<Box>
-				<Text
-					fontFamily={"heading"}
-					fontSize={{ base: "24px", md: "30px", lg: "36px" }}
-					mb={10}
-					ms={5}
-					align="start"
-				>
-					{msg}
-				</Text>
-			</Box>
-			<Box mr={2}>
-				<SimpleGrid minChildWidth="300px" spacing="18px">
-					<ItemList gearList={gearList} />
-				</SimpleGrid>
-			</Box>
+			<SimpleGrid minChildWidth="300px" spacing="18px" mt={10}>
+				<ItemList gearList={gearList} />
+			</SimpleGrid>
 		</Box>
 	);
 }

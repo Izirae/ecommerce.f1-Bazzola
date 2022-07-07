@@ -172,7 +172,7 @@ const ItemDetailContainer = ({price, model, imgURL}) => {
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
 				resolve(gear);
-			}, 2000);
+			}, 500);
 		}).then((res) => {
 			let item = res.find((item) => item.id === idItem);
 			setGearList(item);

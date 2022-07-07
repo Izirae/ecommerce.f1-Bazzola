@@ -77,7 +77,7 @@ export default function Nav() {
 				<Spacer />
 
 				<Box mr={3}>
-					<CartWidget cant={27} />
+					<CartWidget/>
 				</Box>
 
 				<Box alignItems={"center"}>
