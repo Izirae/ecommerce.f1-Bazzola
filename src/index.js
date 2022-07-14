@@ -6,6 +6,28 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from "./theme";
 import CartProvider from './contexts/CartContext/CartContext';
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDmaAW3kzc5fXReDJ6PHXPTGJn5VyfcXm4",
+
+  authDomain: "ecommerce-react37750.firebaseapp.com",
+
+  projectId: "ecommerce-react37750",
+
+  storageBucket: "ecommerce-react37750.appspot.com",
+
+  messagingSenderId: "701658507761",
+
+  appId: "1:701658507761:web:07e3ef172c2ef21978fc50"
+
+};
+
+
+// Initialize Firebase
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
