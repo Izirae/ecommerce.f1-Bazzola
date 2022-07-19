@@ -11,16 +11,14 @@ export default function CartProvider({ children }) {
   };
 
   function addItem(item) {
-
     let newItem = [];
 
     if (isInCart(item.id)) {
-
-      let dup = isInCart(item.id)
-      dup = { ...dup, quant: item.quant }
+      let dup = isInCart(item.id);
+      dup = { ...dup, quant: item.quant };
       newItem = cart.map((dupItem) => {
-        return { ...dupItem, quant: dupItem.quant + dup.quant, subTotal: dupItem.price * (dupItem.quant + dup.quant) }
-      })
+        return { ...dupItem, quant: dupItem.quant + dup.quant, subTotal: dupItem.price * (dupItem.quant + dup.quant) };
+      });
     } else {
       newItem = cart.concat(item);
     }
@@ -37,7 +35,7 @@ export default function CartProvider({ children }) {
   }
 
   function finalPrice() {
-    let price = cart.reduce((prev, next) => prev + next.subTotal, 0)
+    let price = cart.reduce((prev, next) => prev + next.subTotal, 0);
     return price;
   }
 

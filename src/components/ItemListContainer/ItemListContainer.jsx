@@ -10,28 +10,27 @@ function ItemListContainer() {
 	const [catalog, setCatalog] = useState([]);
 	let { idCat } = useParams();
 	let { idSubcat } = useParams();
-	
 
 	useEffect(() => {
 		async function getItems() {
-			let auxArray = [];
+			let auxCatalog = [];
 			let aux;
 			const db = getFirestore();
 			const gear = collection(db, 'gear');
 			let promise = getDocs(gear).then((el) => {
 				el.docs.map((item) => {
 					aux = { ...item.data(), id: item.id };
-					auxArray = auxArray.concat(aux);
-					return auxArray;
+					auxCatalog = auxCatalog.concat(aux);
+					return auxCatalog;
 				});
-				setCatalog(auxArray);
+				setCatalog(auxCatalog);
 			});
 
 			await promise;
 		}
 
 		getItems();
-	
+
 		let catFilter = catalog.filter((item) => item.cat === idCat);
 		let subCatFilter = catFilter.filter((item) => item.subcat === idSubcat);
 		// console.log(catFilter, subCatFilter)
