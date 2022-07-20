@@ -7,45 +7,39 @@ import { collection, getDocs, getFirestore } from 'firebase/firestore';
 function ItemListContainer() {
 	const [gearList, setGearList] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [catalog, setCatalog] = useState([]);
 	let { idCat } = useParams();
 	let { idSubcat } = useParams();
 
 	useEffect(() => {
-		async function getItems() {
-			let auxCatalog = [];
-			let aux;
-			const db = getFirestore();
-			const gear = collection(db, 'gear');
-			let promise = getDocs(gear).then((el) => {
-				el.docs.map((item) => {
-					aux = { ...item.data(), id: item.id };
-					auxCatalog = auxCatalog.concat(aux);
-					return auxCatalog;
-				});
-				setCatalog(auxCatalog);
+		const db = getFirestore();
+		const gear = collection(db, 'gear');
+
+		if (idCat) {
+			getDocs(gear).then((el) => {
+				const auxGearList = el.docs.map((item) => ({ ...item.data(), id: item.id }));
+				console.log(auxGearList, 'cat');
+				const auxCat = auxGearList.filter((product) => product.cat === idCat);
+				setLoading(false);
+
+				if (idSubcat) {
+					const auxSubcat = auxCat.filter((product) => product.subcat === idSubcat);
+					console.log(auxSubcat, 'subcat');
+					setGearList(auxSubcat);
+					setLoading(false);
+				} else {
+					setGearList(auxCat);
+					setLoading(false);
+				}
 			});
-
-			await promise;
-		}
-
-		getItems();
-
-		let catFilter = catalog.filter((item) => item.cat === idCat);
-		let subCatFilter = catFilter.filter((item) => item.subcat === idSubcat);
-		// console.log(catFilter, subCatFilter)
-
-		if (idCat === undefined) {
-			setGearList(catalog);
-			setLoading(false);
-		} else if (idSubcat === undefined) {
-			setGearList(catFilter);
-			setLoading(false);
 		} else {
-			setGearList(subCatFilter);
-			setLoading(false);
+			getDocs(gear).then((el) => {
+				const auxGearList = el.docs.map((item) => ({ ...item.data(), id: item.id }));
+				console.log(auxGearList, 'no cat');
+				setGearList(auxGearList);
+				setLoading(false);
+			});
 		}
-	}, [idCat, idSubcat, catalog]);
+	}, [idCat, idSubcat]);
 
 	return loading ? (
 		<HStack>
