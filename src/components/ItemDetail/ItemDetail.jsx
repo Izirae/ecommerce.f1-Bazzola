@@ -5,11 +5,21 @@ import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext/CartContext';
 
 export default function ItemDetail({ gearList }) {
-	const { addItem } = useContext(CartContext);
+	const { cart, addItem } = useContext(CartContext);
 
 	function onAdd(added) {
+
+		const aux = cart.filter((el) => el.id === gearList.id)	
+		let test
+
+		if (aux.length > 0){
+			test = aux[0].quant + added
+		}
+
 		if (added === 0) {
 			alert("Elija cuantos items va a agregar al carrito")
+		} else if(test > gearList.stock){	
+			alert("No puede agregar más items que el stock")
 		} else {
 			addItem({ ...gearList, quant: added, subTotal: gearList.price * added });
 			alert('Agregaste ' + added + ' ' + gearList.model + ' al carrito');
@@ -17,8 +27,7 @@ export default function ItemDetail({ gearList }) {
 	}
 
 	// lista de detalles
-
-	const items = gearList.desc.map((item) => <ListItem key={item}>{item}</ListItem>);
+	const desc = gearList.desc.map((item) => <ListItem key={item}>{item}</ListItem>);
 
 	return (
 		<Container maxW={'7xl'}>
@@ -38,11 +47,11 @@ export default function ItemDetail({ gearList }) {
 
 					<Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}>
 						<UnorderedList color={useColorModeValue('gray.500', 'gray.400')} fontSize={'m'} fontWeight={'300'} align="left">
-							{items}
+							{desc}
 						</UnorderedList>
 
 						<VStack spacing={{ base: 4, sm: 6 }}>
-							<ItemCount stock={10} onAdd={onAdd} />
+							<ItemCount stock={gearList.stock} onAdd={onAdd} />
 						</VStack>
 					</Stack>
 					<Stack direction="row" alignItems="center" justifyContent={'center'}>

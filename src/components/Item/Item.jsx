@@ -8,6 +8,7 @@ export default function Item({id, model, brand, price, imgURL}) {
 
 
     return (
+            <Link	as={RouterLink} to={"/item/" + id} style={{ textDecoration: 'none' }}>
               <Box
                 bg={useColorModeValue('#FFF159', 'blue.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -57,7 +58,7 @@ export default function Item({id, model, brand, price, imgURL}) {
                     {brand}
                   </Text>
                   <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} align='center'>
-                    <Link	as={RouterLink} to={"/item/" + id}>{model}</Link>
+                    <Text>{model}</Text>
                   </Heading>
                   <Stack direction={'row'} align={'center'}>
                     <Text fontWeight={700} fontSize={'xl'}>
@@ -66,7 +67,7 @@ export default function Item({id, model, brand, price, imgURL}) {
                   </Stack>
                 </Stack>
               </Box> 
-              
+            </Link>
         );
 }
         
