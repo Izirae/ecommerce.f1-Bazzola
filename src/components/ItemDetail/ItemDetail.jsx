@@ -8,9 +8,9 @@ export default function ItemDetail({ gearList }) {
 	const { cart, addItem } = useContext(CartContext);
 
 	function onAdd(added) {
-
-		const aux = cart.filter((el) => el.id === gearList.id)	
-		let test
+		
+		let aux = cart.filter((el) => el.id === gearList.id)	
+		let test = 0
 
 		if (aux.length > 0){
 			test = aux[0].quant + added
@@ -18,11 +18,21 @@ export default function ItemDetail({ gearList }) {
 
 		if (added === 0) {
 			alert("Elija cuantos items va a agregar al carrito")
-		} else if(test > gearList.stock){	
-			alert("No puede agregar más items que el stock")
-		} else {
+		} else if(test <= gearList.stock){	
 			addItem({ ...gearList, quant: added, subTotal: gearList.price * added });
 			alert('Agregaste ' + added + ' ' + gearList.model + ' al carrito');
+			console.log(test, "test")
+			console.log(aux, "aux")
+			console.log(cart, "cart")
+			console.log(gearList)
+			aux = []
+
+		} else {
+			alert("No puede agregar más items que el stock")
+			console.log(test, "test")
+			console.log(aux, "aux")
+			console.log(cart, "cart")
+			aux = []
 		}
 	}
 

@@ -17,14 +17,12 @@ function ItemListContainer() {
 		if (idCat) {
 			getDocs(gear).then((el) => {
 				const auxGearList = el.docs.map((item) => ({ ...item.data(), id: item.id }));
-				console.log(auxGearList, 'cat');
 				const auxCat = auxGearList.filter((product) => product.cat === idCat);
 				setLoading(false);
 
 				if (idSubcat) {
 					const auxSubcat = auxCat.filter((product) => product.subcat === idSubcat);
 					console.log(auxSubcat, 'subcat');
-					setGearList(auxSubcat);
 					setLoading(false);
 				} else {
 					setGearList(auxCat);
@@ -34,7 +32,6 @@ function ItemListContainer() {
 		} else {
 			getDocs(gear).then((el) => {
 				const auxGearList = el.docs.map((item) => ({ ...item.data(), id: item.id }));
-				console.log(auxGearList, 'no cat');
 				setGearList(auxGearList);
 				setLoading(false);
 			});
