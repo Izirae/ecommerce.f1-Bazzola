@@ -18,12 +18,11 @@ function ItemListContainer() {
 			getDocs(gear).then((el) => {
 				const auxGearList = el.docs.map((item) => ({ ...item.data(), id: item.id }));
 				const auxCat = auxGearList.filter((product) => product.cat === idCat);
-				setLoading(false);
-
 				if (idSubcat) {
 					const auxSubcat = auxCat.filter((product) => product.subcat === idSubcat);
 					console.log(auxSubcat, 'subcat');
 					setLoading(false);
+					setGearList(auxSubcat)
 				} else {
 					setGearList(auxCat);
 					setLoading(false);
