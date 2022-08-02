@@ -4,6 +4,7 @@ import {
 	Button,
 	ButtonGroup,
 	IconButton,
+	Stack,
 	Text,
 	useColorModeValue,
 } from "@chakra-ui/react";
@@ -68,19 +69,19 @@ const ItemCount = ({ stock, onAdd }) => {
 					Stock: {stock}
 				</Text>
 			</Box>
-			<Box>
-				<Button mt={3} mb={2} width="160px" onClick={() => onAdd(addItems)} colorScheme="blue">
+			<Stack direction={['column', 'row']} mt={5}>
+				<Button width="160px" onClick={() => onAdd(addItems)} colorScheme="blue">
 					Agregar al Carrito
 				</Button>
 				{totalItems() === 0 ? (
 					<></>
 				) : (
-					<Button as={Link} to="/cart" mt={3} mb={2} ml={2} width="160px" colorScheme="green">
+					<Button as={Link} to="/cart"width="160px" colorScheme="green">
 						Finalizar compra
 					</Button>
 				)}
 
-			</Box>
+			</Stack>
 		</Box>
 	);
 };

@@ -44,14 +44,14 @@ export default function Nav() {
 						<Stack direction={"row"} align={"center"}>
 							<Image
 								src={logoF1}
-								h={{ base: "30px", md: "50px", lg: "70px" }}
+								h={{ base: "50px", sm:"40px", md: "50px", lg: "70px" }}
 								alt="Steering-Wheel"
 							/>
 							<Text
 								textAlign={useBreakpointValue({ base: "center", md: "left" })}
 								fontFamily={"heading"}
 								color={useColorModeValue("gray.800", "white")}
-								fontSize={{ base: "20px", md: "26px", lg: "32px" }}
+								fontSize={{ base: "0px", sm: "25px", md: "26px", lg: "32px" }}
 							>
 								8th Gear
 							</Text>

@@ -21,18 +21,9 @@ export default function ItemDetail({ gearList }) {
 		} else if(test <= gearList.stock){	
 			addItem({ ...gearList, quant: added, subTotal: gearList.price * added });
 			alert('Agregaste ' + added + ' ' + gearList.model + ' al carrito');
-			console.log(test, "test")
-			console.log(aux, "aux")
-			console.log(cart, "cart")
-			console.log(gearList)
-			aux = []
 
 		} else {
 			alert("No puede agregar más items que el stock")
-			console.log(test, "test")
-			console.log(aux, "aux")
-			console.log(cart, "cart")
-			aux = []
 		}
 	}
 
