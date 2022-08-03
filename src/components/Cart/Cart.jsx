@@ -67,6 +67,7 @@ export default function Cart() {
 						md: '16',
 					}}
 				>
+					
 					<Stack
 						spacing={{
 							base: '8',
@@ -74,9 +75,6 @@ export default function Cart() {
 						}}
 						flex="2"
 					>
-						<Heading fontSize="2xl" fontWeight="extrabold">
-							Shopping Cart ({totalItems()}{totalItems() === 1 ? " item" : " items"})
-						</Heading>
 
 						<Stack spacing="6">
 							{cart.map((item) => {
@@ -87,7 +85,7 @@ export default function Cart() {
 
 					<Flex direction="column" align="center" flex="1">
 						<Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
-							<Heading size="md">Order Summary</Heading>
+							<Heading size="md">Compra ({totalItems()}{totalItems() === 1 ? " producto" : " productos"})</Heading>
 
 							<Stack spacing="6">
 							<Flex justify="space-between" fontSize="sm">

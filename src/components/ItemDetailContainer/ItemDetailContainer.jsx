@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, Spinner, HStack, } from "@chakra-ui/react";
+import { Text, Spinner, Center, } from "@chakra-ui/react";
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
@@ -31,9 +31,9 @@ const ItemDetailContainer = () => {
 
 	return (
 		loading ? (
-			<HStack>
+			<Center>
 				<Spinner size="xl" /> <Text>Loading...</Text>
-			</HStack>
+			</Center>
 		) : (
 			<ItemDetail gearList={gearList} />
 		)

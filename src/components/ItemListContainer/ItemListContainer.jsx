@@ -1,4 +1,4 @@
-import { Box, HStack, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
+import { Box, Center, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
@@ -38,9 +38,9 @@ function ItemListContainer() {
 	}, [idCat, idSubcat]);
 
 	return loading ? (
-		<HStack>
+		<Center>
 			<Spinner size="xl" /> <Text>Loading...</Text>
-		</HStack>
+		</Center>
 	) : (
 		<Box borderWidth="1px" borderRadius="lg" margin="auto" ml={2} mr={2}>
 			<SimpleGrid minChildWidth="300px" spacing="18px" mt={10}>

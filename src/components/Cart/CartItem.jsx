@@ -20,6 +20,8 @@ export function CartItem({ item }) {
         md: 'row',
       }}
       templateColumns='repeat(12, 1fr)' gap={4}
+      borderWidth='1px'
+      rounded="lg"
     >
       <GridItem colSpan={6}>
       <Stack direction="row" spacing="5" width="full">
