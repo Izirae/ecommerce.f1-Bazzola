@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
 	return (
 		loading ? (
 			<Center>
-				<Spinner size="xl" /> <Text>Loading...</Text>
+				<Spinner size="xl" /> <Text> Loading...</Text>
 			</Center>
 		) : (
 			<ItemDetail gearList={gearList} />

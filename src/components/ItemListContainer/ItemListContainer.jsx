@@ -39,10 +39,10 @@ function ItemListContainer() {
 
 	return loading ? (
 		<Center>
-			<Spinner size="xl" /> <Text>Loading...</Text>
+			<Spinner size="xl" /> <Text> Loading...</Text>
 		</Center>
 	) : (
-		<Box borderWidth="1px" borderRadius="lg" margin="auto" ml={2} mr={2}>
+		<Box margin="auto" ml={2} mr={2}>
 			<SimpleGrid minChildWidth="300px" spacing="18px" mt={10}>
 				<ItemList gearList={gearList} />
 			</SimpleGrid>
