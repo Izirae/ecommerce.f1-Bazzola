@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext/CartContext';
-import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { CartItem } from './CartItem';
 import { FaArrowRight } from 'react-icons/fa';
@@ -99,19 +99,19 @@ export default function Cart() {
 
 							<Flex justify="space-between" fontSize="sm">
 								<Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
-									Shipping + Tax
+									Envío + Impuestos
 								</Text>
 								<CLink href="#" textDecor="underline">
-									Calculate shipping
+									Calcular envío
 								</CLink>
 							</Flex>
 
 							<Flex justify="space-between" fontSize="sm">
 								<Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
-									Coupon Code
+									Código de cupón
 								</Text>
 								<CLink href="#" textDecor="underline">
-									Add coupon code
+									Añadir cupón
 								</CLink>
 							</Flex>
 
@@ -122,20 +122,20 @@ export default function Cart() {
 									<Text fontSize="xl" fontWeight="extrabold">${finalPrice()} USD</Text>
 								</Flex>
 							</Stack>
-							<Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+							<Button as={Link} to="/checkout" colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
 								Checkout
 							</Button>
 						</Stack>
 						<HStack mt="6" fontWeight="semibold">
 							<p>or</p>
-							<CLink color={mode('blue.500', 'blue.200')}>Continue shopping</CLink>
+							<CLink as={Link} to="/" color={mode('blue.500', 'blue.200')}>Continue shopping</CLink>
 						</HStack>
 					</Flex>
 				</Stack>
 			</Box>
 			<Center>
-				<Button onClick={() => clear()} colorScheme="red" size={'sm'}>
-						<Icon as={RiDeleteBin2Fill} w={6} h={6} />
+				<Button onClick={() => clear()} colorScheme="red" size={'sm'} mb={5}>
+					<Icon as={MdDelete} w={6} h={6} />
 						Vaciar carrito
 				</Button>
 			</Center>
