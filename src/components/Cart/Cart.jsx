@@ -125,8 +125,8 @@ export default function Cart() {
 							</Button>
 						</Stack>
 						<HStack mt="6" fontWeight="semibold">
-							<p>or</p>
-							<CLink as={Link} to="/" color={mode('blue.500', 'blue.200')}>Continue shopping</CLink>
+							<p>o</p>
+							<CLink as={Link} to="/" color={mode('blue.500', 'blue.200')}>Seguir comprando</CLink>
 						</HStack>
 					</Flex>
 				</Stack>
