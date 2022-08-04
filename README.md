@@ -1,7 +1,7 @@
 # Proyecto de e-commerce en React Js
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-Proyecto de e-commerce sobre Fórmula 1 para el curso de * [React JS](https://reactjs.org/) en Coderhouse, hecho por Lautaro Bazzola, comisión 37750, utilizando Chakra UI.
+Proyecto de e-commerce sobre Fórmula 1 para el curso de [React JS](https://reactjs.org/) en Coderhouse, hecho por Lautaro Bazzola, comisión 37750, utilizando Chakra UI.
 
 Actualmente el proyecto está deployed [aqui](http://localhost:3000)
 
@@ -13,19 +13,19 @@ Actualmente el proyecto está deployed [aqui](http://localhost:3000)
 
 ![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
-## [Chakra UI](https://chakra-ui.com/)
+### [Chakra UI](https://chakra-ui.com/)
 Librería de componentes utilizada para dar estilos y armar cada componente
 
-## [React Router Dom](https://reactrouter.com/)
+### [React Router Dom](https://reactrouter.com/)
 Para enrutamiento entre componentes y filtrado mediante params\
 
-## [SweetAlert2](https://sweetalert2.github.io/)
+### [SweetAlert2](https://sweetalert2.github.io/)
 Estilos personalizados de las alertas
 
-## [Firebase](https://firebase.google.com/)
+### [Firebase](https://firebase.google.com/)
 Almacenamiento del listado de productos y ordenes de compra
 
-## [Vercel](https://vercel.com/)
+### [Vercel](https://vercel.com/)
 Utilizado para el Deploy
 
 # Instalación del proyecto
