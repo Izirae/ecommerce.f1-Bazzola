@@ -40,7 +40,7 @@ export function CartItem({ item }) {
       </Stack>
       </GridItem>
       <GridItem colStart={8} colEnd={13} m="auto">
-      {/* Desktop */}
+      {/* Para escritorio */}
       <Grid direction={"row"} templateColumns='repeat(5, 1fr)' gap={2} 
         display={{
           base: 'none',
@@ -59,7 +59,7 @@ export function CartItem({ item }) {
         </GridItem>
       </Grid>
 
-      {/* Mobile */}
+      {/* Para celular */}
       <Flex
         mt="4"
         align="center"

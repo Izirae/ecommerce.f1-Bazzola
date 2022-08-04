@@ -35,8 +35,6 @@ export default function Cart() {
 		</>
 	) : (
 		<>
-			{/*
-				*/}
 			<Box
 				maxW={{
 					base: '3xl',
