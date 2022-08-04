@@ -17,7 +17,7 @@ export default function Nav() {
 	return (
 		<Box>
 			<Flex
-				bg={useColorModeValue("black", "#eee1ac")}
+				bg={useColorModeValue("black", "#252d4d")}
 				color={useColorModeValue("white", "white")}
 				minH={"70px"}
 				px={{ base: 4 }}
@@ -50,7 +50,7 @@ export default function Nav() {
 							<Text
 								textAlign={useBreakpointValue({ base: "center", md: "left" })}
 								fontFamily={"heading"}
-								color={useColorModeValue("white", "black")}
+								color={useColorModeValue("white", "white")}
 								fontSize={{ base: "0px", sm: "25px", md: "26px", lg: "32px" }}
 							>
 								8th Gear
@@ -82,7 +82,7 @@ export default function Nav() {
 
 				<Box alignItems={"center"}>
 					<Stack direction={"row"} spacing={7} align={"center"}>
-						<Button onClick={toggleColorMode} colorScheme='white'>
+						<Button onClick={toggleColorMode} variant='outline'>
 							{colorMode === "light" ? <MoonIcon /> : <SunIcon />}
 						</Button>
 
@@ -125,8 +125,8 @@ export default function Nav() {
 
 const DesktopNav = () => {
 	const linkColor = useColorModeValue("white", "white");
-	const linkHoverColor = useColorModeValue("gray.700", "#9b8478");
-	const popoverContentBgColor = useColorModeValue("black", "#9b8478");
+	const linkHoverColor = useColorModeValue("gray.700", "pink.200");
+	const popoverContentBgColor = useColorModeValue("black", "#252d4d");
 
 	return (
 		<Stack direction={"row"} spacing={4}>
@@ -174,7 +174,7 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, subchildren }) => {
-	const popoverContentBgColor = useColorModeValue("gray.800", "#675850");
+	const popoverContentBgColor = useColorModeValue("gray.800", "#303c65");
 
 	return (
 		<Box display={"row"} p={2} rounded={"md"}>
@@ -190,7 +190,7 @@ const DesktopSubNav = ({ label, subchildren }) => {
 							<Box>
 								<Text
 									transition={"all .3s ease"}
-									_groupHover={{ color: "pink.700" }}
+									_groupHover={{ color: "pink.500" }}
 									fontWeight={500}
 								>
 									{label}
