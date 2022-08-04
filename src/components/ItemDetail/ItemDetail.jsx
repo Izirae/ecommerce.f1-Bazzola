@@ -3,6 +3,7 @@ import { MdLocalShipping } from 'react-icons/md';
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext/CartContext';
+import Swal from 'sweetalert2'
 
 export default function ItemDetail({ gearList }) {
 	const { cart, addItem } = useContext(CartContext);
@@ -16,14 +17,32 @@ export default function ItemDetail({ gearList }) {
 			test = aux[0].quant + added
 		}
 
-		if (added === 0) {
-			alert("Elija cuantos items va a agregar al carrito")
-		} else if(test <= gearList.stock){	
+		if(test <= gearList.stock){	
 			addItem({ ...gearList, quant: added, subTotal: gearList.price * added });
-			alert('Agregaste ' + added + ' ' + gearList.model + ' al carrito');
+			Swal.fire({
+				title: 'Agregado',
+				text: `Agregaste ${added} ${gearList.model} al carrito.`,
+				icon: 'success',
+				background: '#252d4d',
+				color: 'white',
+				timer: 2500,
+				timerProgressBar: true,
+				showConfirmButton: false,
+			})
 
 		} else {
-			alert("No puede agregar más items que el stock")
+			Swal.fire({
+        title: 'Error.',
+        text: `No puede agregar más items que el stock actual.`,
+        icon: 'error',
+        background: '#252d4d',
+        color: 'white',
+				timer: 2500,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				showCancelButton: true,
+				cancelButtonText: 'Aceptar',
+      })
 		}
 	}
 
@@ -41,13 +60,13 @@ export default function ItemDetail({ gearList }) {
 						<Heading lineHeight={1.1} fontWeight={600} fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
 							{gearList.model}
 						</Heading>
-						<Text color={useColorModeValue('gray.900', 'gray.400')} fontWeight={300} fontSize={'2xl'}>
+						<Text color={useColorModeValue('gray.900', 'gray.100')} fontWeight={500} fontSize={'2xl'}>
 							${gearList.price} USD
 						</Text>
 					</Stack>
 
 					<Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}>
-						<UnorderedList color={useColorModeValue('gray.500', 'gray.400')} fontSize={'m'} fontWeight={'300'} align="left">
+						<UnorderedList color={useColorModeValue('gray.800', 'gray.300')} fontSize={'m'} fontWeight={'300'} align="left">
 							{desc}
 						</UnorderedList>
 

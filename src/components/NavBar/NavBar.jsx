@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/icons";
 import {
   Avatar, Box, Button, Center, Collapse, Flex, Icon, IconButton, Image, Link, Menu,
-  MenuButton, MenuDivider, MenuItem, MenuList, Popover, PopoverContent, PopoverTrigger, Spacer, Stack, Text, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure
+  MenuButton, MenuDivider, MenuItem, MenuList, Popover, PopoverContent, PopoverTrigger, PopoverArrow, Spacer, Stack, Text, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
@@ -17,9 +17,9 @@ export default function Nav() {
 	return (
 		<Box>
 			<Flex
-				bg={useColorModeValue("#FFF159", "blue.800")}
-				color={useColorModeValue("gray.600", "white")}
-				minH={"60px"}
+				bg={useColorModeValue("black", "#eee1ac")}
+				color={useColorModeValue("white", "white")}
+				minH={"70px"}
 				px={{ base: 4 }}
 				borderBottom={1}
 				borderStyle={"solid"}
@@ -50,7 +50,7 @@ export default function Nav() {
 							<Text
 								textAlign={useBreakpointValue({ base: "center", md: "left" })}
 								fontFamily={"heading"}
-								color={useColorModeValue("gray.800", "white")}
+								color={useColorModeValue("white", "black")}
 								fontSize={{ base: "0px", sm: "25px", md: "26px", lg: "32px" }}
 							>
 								8th Gear
@@ -60,14 +60,14 @@ export default function Nav() {
 				</Box>
 
 				<Box
-					bg={useColorModeValue("yellow.50", "gray.800")}
+					bg={useColorModeValue("red.600", "#151025")}
 					borderRadius={"md"}
 					borderBottomRadius={0}
 					display={{ base: "none", md: "flex" }}
 					ml={10}
 					mt={"auto"}
 					p={2}
-					maxH={"35px"}
+					maxH={"40px"}
 				>
 					<Link as={RouterLink} to={"/"} fontSize={"m"} fontWeight={600} me={5}>
 						Productos:
@@ -82,7 +82,7 @@ export default function Nav() {
 
 				<Box alignItems={"center"}>
 					<Stack direction={"row"} spacing={7} align={"center"}>
-						<Button onClick={toggleColorMode}>
+						<Button onClick={toggleColorMode} colorScheme='white'>
 							{colorMode === "light" ? <MoonIcon /> : <SunIcon />}
 						</Button>
 
@@ -124,9 +124,9 @@ export default function Nav() {
 }
 
 const DesktopNav = () => {
-	const linkColor = useColorModeValue("gray.600", "gray.200");
-	const linkHoverColor = useColorModeValue("gray.700", "white");
-	const popoverContentBgColor = useColorModeValue("white", "gray.700");
+	const linkColor = useColorModeValue("white", "white");
+	const linkHoverColor = useColorModeValue("gray.700", "#9b8478");
+	const popoverContentBgColor = useColorModeValue("black", "#9b8478");
 
 	return (
 		<Stack direction={"row"} spacing={4}>
@@ -158,6 +158,7 @@ const DesktopNav = () => {
 								rounded={"xl"}
 								minW={"sm"}
 							>
+								<PopoverArrow bg={popoverContentBgColor}/>
 								<Stack>
 									{navItem.children.map((child) => (
 										<DesktopSubNav key={child.label} {...child} />
@@ -173,23 +174,23 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, subchildren }) => {
-	const popoverContentBgColor = useColorModeValue("white", "gray.800");
+	const popoverContentBgColor = useColorModeValue("gray.800", "#675850");
 
 	return (
 		<Box display={"row"} p={2} rounded={"md"}>
-			<Popover trigger={"hover"} placement={"right"}>
+			<Popover trigger={"hover"} placement={"auto-start"}>
 				<Link
 					as={RouterLink}
 					to={"/categoria/" + label}
 					role={"group"}
-					_hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+					style={{ textDecoration: 'none' }}
 				>
 					<PopoverTrigger>
 						<Stack direction={"row"} align={"center"}>
 							<Box>
 								<Text
 									transition={"all .3s ease"}
-									_groupHover={{ color: "pink.400" }}
+									_groupHover={{ color: "pink.700" }}
 									fontWeight={500}
 								>
 									{label}
@@ -218,6 +219,7 @@ const DesktopSubNav = ({ label, subchildren }) => {
 						rounded={"xl"}
 						minW={"sm"}
 					>
+						<PopoverArrow bg={popoverContentBgColor}/>
 						<Stack>
 							{subchildren.map((child) => (
 								<DesktopSubSubNav key={child.key} cat={label} {...child} />
@@ -239,7 +241,7 @@ const DesktopSubSubNav = ({ label, cat }) => {
 			display={"row"}
 			p={2}
 			rounded={"md"}
-			_hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+			style={{ textDecoration: 'none' }}
 		>
 			<Stack direction={"row"} align={"center"}>
 				<Box>

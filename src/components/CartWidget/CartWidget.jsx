@@ -8,7 +8,7 @@ export default function CartWidget() {
   const { totalItems } = useContext(CartContext);
 
   return (
-    <Button as={Link} to="/cart">
+    <Button as={Link} to="/cart" colorScheme='white' border='2px'>
       <Icon as={MdShoppingCart} />
       {totalItems() === 0 ? (<></>) : (<Text ml={2}>{totalItems()}</Text>)}
     </Button>

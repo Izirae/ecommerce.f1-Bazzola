@@ -20,7 +20,6 @@ export default function CartProvider({ children }) {
     if (isInCart(item.id)) {
       let dup = isInCart(item.id);
       dup = { ...dup, quant: item.quant };
-      console.log(dup, "dup")
       newItem = cart.map((dupItem) => {
        return dupItem.id === dup.id ? { ...dupItem, quant: dupItem.quant + dup.quant, subTotal: dupItem.price * (dupItem.quant + dup.quant) }
         : {...dupItem}

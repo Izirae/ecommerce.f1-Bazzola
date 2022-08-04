@@ -9,7 +9,7 @@ import {
 	useColorModeValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
@@ -27,13 +27,6 @@ const ItemCount = ({ stock, onAdd }) => {
 		setAddItems(addItems > 1 ? addItems - 1 : (addItems = 1));
 	}
 
-	useEffect(() => {
-		if (addItems === stock) {
-			alert("El stock máximo es: " + stock);
-		}
-		// eslint-disable-next-line
-	}, [addItems]);
-
 	return (
 		<Box>
 			<Box
@@ -43,7 +36,7 @@ const ItemCount = ({ stock, onAdd }) => {
 				align="center"
 				margin="auto"
 				borderRadius="lg"
-				bg={useColorModeValue("yellow.50", "gray.800")}
+				borderColor={useColorModeValue("black", "white")}
 			>
 				<ButtonGroup margin="auto" size="sm" isAttached variant="outline">
 					<IconButton
@@ -51,9 +44,10 @@ const ItemCount = ({ stock, onAdd }) => {
 							lessItems();
 						}}
 						icon={<MinusIcon />}
+						borderRightColor={useColorModeValue("black", "white")}
 					/>
 
-					<Text width="100px" py={1} color={useColorModeValue("gray.600", "white")}>
+					<Text width="100px" py={1} color={useColorModeValue("black", "white")}>
 						{addItems}
 					</Text>
 					<IconButton
@@ -61,6 +55,7 @@ const ItemCount = ({ stock, onAdd }) => {
 							moreItems();
 						}}
 						icon={<AddIcon />}
+						borderLeftColor={useColorModeValue("black", "white")}
 					/>
 				</ButtonGroup>
 			</Box>
