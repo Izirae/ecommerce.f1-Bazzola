@@ -37,11 +37,12 @@ export const Footer = () => (
       <ButtonGroup variant="ghost">
         <IconButton
           as="a"
-          href="#"
+          href="https://www.linkedin.com/in/lautaro-bazzola-a76170211/" 
+          target='_blank'
           aria-label="LinkedIn"
           icon={<FaLinkedin fontSize= "30px"/>}
         />
-        <IconButton as="a" href="#" aria-label="GitHub" icon={<FaGithub fontSize="30px" />} />
+        <IconButton as="a" href="https://github.com/Izirae" target='_blank' aria-label="GitHub" icon={<FaGithub fontSize="30px" />} />
       </ButtonGroup>
     </Stack>
   </Stack>

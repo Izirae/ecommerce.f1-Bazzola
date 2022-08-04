@@ -44,7 +44,7 @@ export default function CheckOut() {
       date: fecha,
     };
 
-    if(cart.length < 0){
+    if(cart.length > 0){
       const db = getFirestore();
       const CollectionRef = collection(db, 'checkout');
       await addDoc(CollectionRef, pedido).then(({ id }) => {
@@ -75,7 +75,7 @@ export default function CheckOut() {
   }
 
   return (
-    <Box w={'50%'} m='auto' mt={25} border='1px' p={5} bg={useColorModeValue('gray.100', '#252d4d')}>
+    <Box w={'75%'} m='auto' mt={25} mb={10} border='1px' p={5} bg={useColorModeValue('gray.100', '#252d4d')}>
       <form onSubmit={handleSubmit(onSubmit)}>
 
         <FormControl isInvalid={errors.name}>
